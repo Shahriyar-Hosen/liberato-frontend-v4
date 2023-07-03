@@ -8,6 +8,11 @@ export interface IParamsLng {
   };
 }
 
+export interface ILngPath {
+  lng: string;
+  path: string;
+}
+
 export interface IChildren extends IParamsLng {
   children: ReactNode;
 }
