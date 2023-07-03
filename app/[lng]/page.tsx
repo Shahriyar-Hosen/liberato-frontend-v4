@@ -30,6 +30,7 @@ export default async function Page({ params: { lng } }: IParamsLng) {
             Welcome to Next.js v13 <small>appDir</small> and i18next
           </Trans>
         </h2>
+
         <div style={{ width: '100%' }}>
           <p>
             <Trans t={t} i18nKey="blog.text">
