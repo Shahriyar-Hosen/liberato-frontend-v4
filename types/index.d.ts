@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable import/no-extraneous-dependencies */
 
+import { TFunction } from 'i18next';
 import { ReactNode } from 'react';
 
 export interface IParamsLng {
@@ -15,4 +17,8 @@ export interface ILngPath {
 
 export interface IChildren extends IParamsLng {
   children: ReactNode;
+}
+
+export interface IT {
+  t: TFunction<string, undefined>;
 }

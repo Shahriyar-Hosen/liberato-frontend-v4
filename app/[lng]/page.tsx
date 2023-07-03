@@ -11,6 +11,7 @@ import { useTranslation } from '../i18n';
 import { fallbackLng, languages } from '../i18n/settings';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { Test } from './components/Test';
 
 export async function generateMetadata({ params: { lng } }: IParamsLng) {
   const { t } = await useTranslation(lng);
@@ -23,6 +24,7 @@ export default async function Page({ params: { lng } }: IParamsLng) {
 
   return (
     <>
+      <Test lng={lng} />
       <main>
         <Header heading={t('h1')} />
         <h2>

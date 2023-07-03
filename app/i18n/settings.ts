@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 export const fallbackLng = 'en';
-export const languages = [fallbackLng, 'de', 'it'];
+export const languages = [fallbackLng, 'hr', 'de', 'it'];
 export const defaultNS = 'translation';
 
 export function getOptions(lng = fallbackLng, ns = defaultNS) {
