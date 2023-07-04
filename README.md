@@ -1,2 +1,1 @@
-
-# how to deploy
+# Liberato Frontend v4
