@@ -40,8 +40,8 @@ i18next
 
 export function useTranslation(
   lng: string,
-  ns: string,
-  options: UseTranslationOptions<undefined>
+  ns?: string,
+  options?: UseTranslationOptions<undefined>
 ) {
   const ret = useTranslationOrg(ns, options);
   const { i18n } = ret;

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export interface IContactValues {
   fullName: string;
   email: string;
