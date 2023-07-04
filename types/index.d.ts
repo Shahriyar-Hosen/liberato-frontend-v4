@@ -10,7 +10,7 @@ export interface IParamsLng {
 
 export interface ILngPath {
   lng: string;
-  path: string;
+  path?: string;
 }
 
 export interface IChildren extends IParamsLng {

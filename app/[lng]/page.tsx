@@ -1,18 +1,25 @@
-import Link from 'next/link'
-import { Trans } from 'react-i18next/TransWithoutContext'
-import { languages, fallbackLng } from '../i18n/settings'
-import { useTranslation } from '../i18n'
-import { Header } from './components/Header'
-import { Footer } from './components/Footer'
+/* eslint-disable prettier/prettier */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable no-param-reassign */
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable import/no-extraneous-dependencies */
 
-export async function generateMetadata({ params: { lng } }) {
-  const { t } = await useTranslation(lng)
-  return { title: t('h1') }
+import { IParamsLng } from '@/types';
+import Link from 'next/link';
+import { Trans } from 'react-i18next/TransWithoutContext';
+import { useTranslation } from '../i18n';
+import { fallbackLng, languages } from '../i18n/settings';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+
+export async function generateMetadata({ params: { lng } }: IParamsLng) {
+  const { t } = await useTranslation(lng);
+  return { title: t('h1') };
 }
 
-export default async function Page({ params: { lng } }) {
-  if (languages.indexOf(lng) < 0) lng = fallbackLng
-  const { t } = await useTranslation(lng)
+export default async function Page({ params: { lng } }: IParamsLng) {
+  if (languages.indexOf(lng) < 0) lng = fallbackLng;
+  const { t } = await useTranslation(lng);
 
   return (
     <>
@@ -26,13 +33,15 @@ export default async function Page({ params: { lng } }) {
         <div style={{ width: '100%' }}>
           <p>
             <Trans t={t} i18nKey="blog.text">
-              Check out the corresponding <a href={t('blog.link')}>blog post</a> describing this example.
+              Check out the corresponding <a href={t('blog.link')}>blog post</a>{' '}
+              describing this example.
             </Trans>
           </p>
           <a href={t('blog.link')}>
             <img
               style={{ width: '50%' }}
               src="https://locize.com/blog/next-13-app-dir-i18n/next-13-app-dir-i18n.jpg"
+              alt=""
             />
           </a>
         </div>
@@ -46,7 +55,7 @@ export default async function Page({ params: { lng } }) {
           </Link>
         </div>
       </main>
-      <Footer lng={lng}/>
+      <Footer lng={lng} />
     </>
-  )
+  );
 }
