@@ -2,7 +2,7 @@
 
 ### First steps
 
-```js
+```ts
 npm install
 ```
 
