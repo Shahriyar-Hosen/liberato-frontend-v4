@@ -12,3 +12,4 @@ This project use:
 - eslint with airbnb style
 - TailwindsCSS v3
 - Prettier
+- i18n plugin for locales
