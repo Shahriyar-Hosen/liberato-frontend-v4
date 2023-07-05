@@ -26,5 +26,6 @@ check-lint  // checking lint errors
 lint // autofix eslint problems
 format  // autoformat code
 test-all // run all tests
+prepare 
 
 ```
