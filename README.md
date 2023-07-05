@@ -14,4 +14,5 @@ This project use:
 - Prettier
 - i18n plugin for locales
 - WordPress for headless
+
 cms [https://wp.udruga-liberato.hr/wp-json/wp/v2/posts]
