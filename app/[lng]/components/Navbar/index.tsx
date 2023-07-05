@@ -2,9 +2,9 @@
 
 import { useTranslation } from '@/app/i18n';
 import { ILngPath } from '@/types';
-import { TestBase } from './TestBase';
+import { NavbarBase } from './NavbarBase';
 
 export const Test = async ({ lng }: ILngPath) => {
   const { t } = await useTranslation(lng, 'test');
-  return <TestBase t={t} />;
+  return <NavbarBase t={t} />;
 };

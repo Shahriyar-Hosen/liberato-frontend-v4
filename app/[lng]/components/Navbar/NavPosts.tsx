@@ -1,8 +1,11 @@
+/* eslint-disable prettier/prettier */
+
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { IFeaturedMedia, IPost } from 'types/blog-posts';
-import { wpApiUrl } from 'utils/api';
+import { useEffect, useState } from 'react';
+
+import { IFeaturedMedia, IPost } from '@/types/blog-posts';
+import { wpApiUrl } from '@/utils/api';
 
 function NavPosts({ post }: { post: IPost }) {
   const [featuredMedia, setFeaturedMedia] = useState<IFeaturedMedia>({

@@ -16,7 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
-import NavPosts from './NavPosts';
+import NavPosts from '../app/[lng]/components/Navbar/NavPosts';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
