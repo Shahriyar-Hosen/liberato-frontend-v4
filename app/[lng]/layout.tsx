@@ -24,10 +24,8 @@ export default function RootLayout({ children, params: { lng } }: IRootLayout) {
       <body>
         <main>
           <ThemeProvider enableSystem attribute='class' defaultTheme='system'>
-            {/* <SessionProvider session={session}> */}
             <Navbar lng={lng} />
             {children}
-            {/* </SessionProvider> */}
           </ThemeProvider>
         </main>
       </body>
