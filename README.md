@@ -2,6 +2,6 @@
 
 ### First steps
 
-```js
-npm install
+```ts
+    npm install
 ```
