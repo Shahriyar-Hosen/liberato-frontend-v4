@@ -41,7 +41,6 @@ export function NavbarBase({ t, lng }: ITLngPath) {
   const renderThemeChanger = () => {
     if (!mounted) return null;
     const currentTheme = theme === 'system' ? systemTheme : theme;
-
     if (currentTheme === 'dark') {
       return (
         <SunIcon

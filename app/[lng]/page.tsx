@@ -16,8 +16,6 @@ export async function generateMetadata({ params: { lng } }: IParamsLng) {
 
 export default async function Page({ params: { lng } }: IParamsLng) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
-  const { t } = await useTranslation(lng);
-  console.log(t);
-
+  // const { t } = await useTranslation(lng);
   return <Test lng={lng} />;
 }
