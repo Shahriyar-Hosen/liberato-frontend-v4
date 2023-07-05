@@ -9,3 +9,4 @@
 This project use:
 
 - Typescript
+- eslint with airbnb style
