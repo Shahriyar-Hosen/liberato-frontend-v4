@@ -22,3 +22,5 @@ export interface IChildren extends IParamsLng {
 export interface IT {
   t: TFunction<string, undefined>;
 }
+
+export interface ITLngPath extends ILngPath, IT {}

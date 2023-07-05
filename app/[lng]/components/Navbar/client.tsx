@@ -7,6 +7,6 @@ import { ILngPath } from '@/types';
 import { NavbarBase } from './NavbarBase';
 
 export function Navbar({ lng }: ILngPath) {
-  const { t } = useTranslation(lng, 'test');
-  return <NavbarBase t={t} />;
+  const { t } = useTranslation(lng, 'common');
+  return <NavbarBase t={t} lng={lng} />;
 }

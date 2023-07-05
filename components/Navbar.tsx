@@ -51,12 +51,14 @@ export default function Navbar() {
     );
   };
   const { t } = useTranslation();
+
   const {
     locales,
     locale: currentLocale,
     pathname,
     query: { slug, name },
   } = useRouter();
+
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch(`${wpApiUrl}/posts?per_page=2&page=1&lang=${currentLocale}`)
