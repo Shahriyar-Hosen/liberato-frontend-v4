@@ -7,3 +7,4 @@
 ```
 
 This project use:
+- Typescript
