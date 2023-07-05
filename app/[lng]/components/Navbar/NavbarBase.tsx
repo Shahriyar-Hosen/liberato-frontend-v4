@@ -13,7 +13,7 @@ import { more, navigation, projects } from '@/utils/navbar';
 import { Menu, Popover, Transition } from '@headlessui/react';
 import { ChevronDownIcon, MoonIcon, SunIcon } from '@heroicons/react/20/solid';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Session } from 'next-auth';
+import { Session, getServerSession } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -21,12 +21,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 import NavPosts from './NavPosts';
+import { authOptions } from '../../api/auth/[...nextauth]';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export function NavbarBase({ t, lng }: ITLngPath) {
+export async function NavbarBase({ t, lng }: ITLngPath) {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -65,15 +66,16 @@ export function NavbarBase({ t, lng }: ITLngPath) {
       .then(setPosts);
   }, [currentLocale]);
   // const { data: session } = useSession();
+  const session = await getServerSession(authOptions)
 
-  const session: Session | null = {
-    user: {
-      name: 'string',
-      email: 'string',
-      image: 'string',
-    },
-    expires: '01', // This is the expiry of the session, not any of the tokens within the session
-  };
+  // const session: Session | null = {
+  //   user: {
+  //     name: 'string',
+  //     email: 'string',
+  //     image: 'string',
+  //   },
+  //   expires: '01', // This is the expiry of the session, not any of the tokens within the session
+  // };
 
   return (
     <Popover className='relative bg-white dark:bg-gray-800'>
