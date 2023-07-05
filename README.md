@@ -3,7 +3,7 @@
 ### First steps
 
 ```ts
-npm install
+    npm install
 ```
 
 This project use:
