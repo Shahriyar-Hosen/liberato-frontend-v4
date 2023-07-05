@@ -22,5 +22,6 @@ cms [https://wp.udruga-liberato.hr/wp-json/wp/v2/posts]
 ```ts
 check-types // ts types check
 check-format // checking formatted code with prettier
+check-lint 
 
 ```
