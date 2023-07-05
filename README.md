@@ -13,3 +13,4 @@ This project use:
 - TailwindsCSS v3
 - Prettier
 - i18n plugin for locales
+- WordPress for headless
