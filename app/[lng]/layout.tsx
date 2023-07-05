@@ -1,9 +1,13 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable import/no-extraneous-dependencies */
+
+'use client';
+
 import './global.css';
 
 import { IChildren, IParamsLng } from '@/types';
 import { dir } from 'i18next';
+import { ThemeProvider } from 'next-themes';
 import { languages } from '../i18n/settings';
 import { Navbar } from './components/Navbar';
 
@@ -23,10 +27,12 @@ IRootLayout) {
       <head />
       <body>
         <main>
-          {/* <SessionProvider session={session}> */}
-          <Navbar lng={lng} />
-          {children}
-          {/* </SessionProvider> */}
+          <ThemeProvider enableSystem attribute='class' defaultTheme='system'>
+            {/* <SessionProvider session={session}> */}
+            <Navbar lng={lng} />
+            {children}
+            {/* </SessionProvider> */}
+          </ThemeProvider>
         </main>
       </body>
     </html>
