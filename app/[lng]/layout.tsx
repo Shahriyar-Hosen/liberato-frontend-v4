@@ -17,11 +17,7 @@ export async function generateStaticParams() {
 
 export interface IRootLayout extends IChildren, IParamsLng {}
 
-export default function RootLayout({
-  children,
-  params: { lng },
-}: // pageProps: { session },
-IRootLayout) {
+export default function RootLayout({ children, params: { lng } }: IRootLayout) {
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />
