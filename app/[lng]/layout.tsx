@@ -9,7 +9,7 @@ import { IChildren, IParamsLng } from '@/types';
 import { dir } from 'i18next';
 import { ThemeProvider } from 'next-themes';
 import { languages } from '../i18n/settings';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
