@@ -3,6 +3,7 @@
 
 import { TFunction } from 'i18next';
 import { ReactNode } from 'react';
+import { IPost } from './blog-posts';
 
 export interface IParamsLng {
   params: {
@@ -30,3 +31,7 @@ export interface ITWithCommon extends IT {
 export interface ITLngPath extends ILngPath, IT {}
 
 export interface ITLngPathWithCommon extends ILngPath, ITWithCommon {}
+
+export interface IPosts {
+  posts: IPost[];
+}

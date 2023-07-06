@@ -1,9 +1,13 @@
-import { useReadingTime } from 'hooks/useReadingTime';
+/* eslint-disable prettier/prettier */
+
+'use client';
+
+import { useReadingTime } from '@/hooks/useReadingTime';
+import { IAuthor, IFeaturedMedia, IPost } from '@/types/blog-posts';
+import { wpApiUrl } from '@/utils/api';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { IAuthor, IFeaturedMedia, IPost } from 'types/blog-posts';
-import { wpApiUrl } from 'utils/api';
+import { useEffect, useState } from 'react';
 
 function HomePostSingle({ post }: { post: IPost }) {
   const [author, setAuthor] = useState<IAuthor>({
