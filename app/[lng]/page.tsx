@@ -4,29 +4,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable import/no-extraneous-dependencies */
 
-'use client';
-
 import { IParamsLng, IPosts } from '@/types';
-// import { wpApiUrl } from '@/utils/api';
-// import { GetStaticProps } from 'next';
-// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { wpApiUrl } from '@/utils/api';
 import { useTranslation } from '../i18n';
 import { fallbackLng, languages } from '../i18n/settings';
-import { AboutUsHome, Cards, Hero } from './components';
+import { AboutUsHome, BlogHome, Cards, Hero } from './components';
+import axios from 'axios';
+import { IPost } from '@/types/blog-posts';
 
-// export const getStaticProps: GetStaticProps = async ({ locale }) => {
-//   const res = await fetch(`${wpApiUrl}/posts?per_page=3&page=1&lang=${locale}`);
-
-//   const posts = await res.json();
-
-//   return {
-//     props: {
-//       posts,
-//       ...(await serverSideTranslations(locale!, ['index', 'common'])),
-//     },
-//     revalidate: 10,
-//   };
-// };
 
 export async function generateMetadata({ params: { lng } }: IParamsLng) {
   const { t } = await useTranslation(lng);
@@ -35,9 +20,24 @@ export async function generateMetadata({ params: { lng } }: IParamsLng) {
 
 export interface IHome extends IParamsLng, IPosts {}
 
+
+async function fetchPosts(lng: string): Promise<IPost[]> {
+  try {
+    const response = await axios.get(`${wpApiUrl}/posts?per_page=3&page=1&lang=${lng}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching posts', error);
+    return [];
+  }
+}
+
 export default async function Home({ params: { lng } }: IHome) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   // const { t } = await useTranslation(lng);
+
+  let posts: IPost[] = [];
+
+  posts = await fetchPosts(lng);
 
   return (
     <>
