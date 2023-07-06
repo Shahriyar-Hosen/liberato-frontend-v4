@@ -1,4 +1,5 @@
-import { ISocial } from 'types/navbar';
+/* eslint-disable prettier/prettier */
+import { ISocial } from '@/types/navbar';
 
 export const social: ISocial[] = [
   {

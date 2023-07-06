@@ -12,12 +12,14 @@ import { AboutUsHome, BlogHome, Cards, Hero } from './components';
 import axios from 'axios';
 import { IPost } from '@/types/blog-posts';
 
+
 export async function generateMetadata({ params: { lng } }: IParamsLng) {
   const { t } = await useTranslation(lng);
   return { title: t('h1') };
 }
 
 export interface IHome extends IParamsLng, IPosts {}
+
 
 async function fetchPosts(lng: string): Promise<IPost[]> {
   try {
@@ -42,7 +44,7 @@ export default async function Home({ params: { lng } }: IHome) {
       <Hero lng={lng} />
       <Cards lng={lng} />
       <AboutUsHome lng={lng} />
-      <BlogHome lng={lng} posts={posts} />
+      {/* <BlogHome lng={lng} posts={posts} /> */}
     </>
   );
 }

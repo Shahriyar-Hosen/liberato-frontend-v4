@@ -1,13 +1,15 @@
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { useState } from 'react';
-import { useTranslation } from 'next-i18next';
+/* eslint-disable prettier/prettier */
+import { IT } from '@/types';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { useFormik } from 'formik';
+import { useState } from 'react';
+import * as Yup from 'yup';
 
-export default function NewsletterForm() {
+export default function NewsletterForm({ t }: IT) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
+
   const formik = useFormik({
     validateOnMount: false,
     validateOnChange: true,
@@ -80,10 +82,10 @@ export default function NewsletterForm() {
           onChange={formik.handleChange}
           value={formik.values.name}
         />
-        <div className='mt-4 rounded-md sm:mt-0 sm:ml-4 sm:shrink-0'>
+        <div className='mt-4 rounded-md sm:ml-4 sm:mt-0 sm:shrink-0'>
           <button
             type='submit'
-            className='flex w-full items-center justify-center rounded-md bg-indigo-500 py-1.5 px-3 text-base font-semibold leading-7 text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 sm:text-sm sm:leading-6'
+            className='flex w-full items-center justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 sm:text-sm sm:leading-6'
             // @ts-ignore
             onClick={formik.handleSubmit}
           >

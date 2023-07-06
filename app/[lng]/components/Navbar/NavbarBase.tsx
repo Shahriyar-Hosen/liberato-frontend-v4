@@ -314,6 +314,7 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
                 </Link>
               ))}
             </ul>
+
             {renderThemeChanger()}
 
             {session?.user == null ? (
