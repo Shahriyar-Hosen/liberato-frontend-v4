@@ -7,7 +7,7 @@
 import { IParamsLng } from '@/types';
 import { useTranslation } from '../i18n';
 import { fallbackLng, languages } from '../i18n/settings';
-import { Cards, Hero } from './components';
+import { AboutUsHome, Cards, Hero } from './components';
 
 export async function generateMetadata({ params: { lng } }: IParamsLng) {
   const { t } = await useTranslation(lng);
@@ -22,6 +22,7 @@ export default async function Page({ params: { lng } }: IParamsLng) {
     <>
       <Hero lng={lng} />
       <Cards lng={lng} />
+      <AboutUsHome lng={lng} />
     </>
   );
 }

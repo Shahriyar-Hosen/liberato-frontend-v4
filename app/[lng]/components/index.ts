@@ -2,6 +2,7 @@
 
 'use client';
 
+export * from './AboutUsHome';
 export * from './Cards';
 export * from './Footer';
 export * from './Hero';
