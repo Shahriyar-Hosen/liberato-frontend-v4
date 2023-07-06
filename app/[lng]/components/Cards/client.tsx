@@ -7,6 +7,6 @@ import { ILngPath } from '@/types';
 import { CardsBase } from './CardsBase';
 
 export function Cards({ lng }: ILngPath) {
-  const { t } = useTranslation(lng, 'test');
+  const { t } = useTranslation(lng, 'index');
   return <CardsBase t={t} />;
 }

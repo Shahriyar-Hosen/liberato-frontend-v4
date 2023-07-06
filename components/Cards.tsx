@@ -5,7 +5,7 @@ import {
 } from '@heroicons/react/24/outline';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useTranslation } from 'next-i18next';
-import CardItem from './CardItem';
+import CardItem from '../app/[lng]/components/Cards/CardItem';
 
 export default function Cards() {
   const { t } = useTranslation();
