@@ -8,7 +8,7 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import NewsletterForm from './NewsletterForm';
+import NewsletterForm from '../app/[lng]/components/Footer/NewsletterForm';
 
 const social: Array<ISocial> = [
   {
