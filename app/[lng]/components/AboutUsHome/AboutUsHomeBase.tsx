@@ -1,14 +1,16 @@
-import { useTranslation } from 'next-i18next';
+/* eslint-disable prettier/prettier */
+/* eslint-disable import/no-extraneous-dependencies */
+
+import { ITLngPathWithCommon } from '@/types';
+import { aboutUsStats } from '@/utils/about-us';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { IAboutUsStats } from '@/types/about-us';
-import { aboutUsStats } from '@/utils/about-us';
 
-export default function AboutUsHome() {
-  const { t } = useTranslation();
-  const { locale: currentLocale } = useRouter();
-
+export function AboutUsHomeBase({
+  t,
+  lng: currentLocale,
+  commonT,
+}: ITLngPathWithCommon) {
   return (
     <div className='relative bg-white py-16 dark:bg-gray-800 sm:py-24'>
       <div className='lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8'>
@@ -19,7 +21,7 @@ export default function AboutUsHome() {
           >
             <div className='absolute inset-y-0 right-1/2 w-full rounded-r-3xl bg-gray-50 dark:bg-gray-700 lg:right-72' />
             <svg
-              className='absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12'
+              className='absolute left-1/2 top-8 -ml-3 lg:-right-8 lg:left-auto lg:top-12'
               width={404}
               height={392}
               fill='none'
@@ -53,7 +55,7 @@ export default function AboutUsHome() {
           </div>
           <div className='relative mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-none lg:px-0 lg:py-20'>
             {/* Testimonial card */}
-            <div className='relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl'>
+            <div className='relative overflow-hidden rounded-2xl pb-10 pt-64 shadow-xl'>
               <Image
                 width={200}
                 height={200}
@@ -67,7 +69,7 @@ export default function AboutUsHome() {
                 <blockquote className='mt-8'>
                   <div className='relative text-lg font-medium text-white md:grow'>
                     <svg
-                      className='absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 text-indigo-400'
+                      className='absolute left-0 top-0 h-8 w-8 -translate-x-3 -translate-y-2 text-indigo-400'
                       fill='currentColor'
                       viewBox='0 0 32 32'
                       aria-hidden='true'
@@ -93,15 +95,15 @@ export default function AboutUsHome() {
           {/* Content area */}
           <div className='pt-12 sm:pt-16 lg:pt-20'>
             <h2 className='text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl'>
-              {t('index:third_title')}
+              {t('third_title')}
             </h2>
             <div className='mt-6 space-y-6 text-gray-500 dark:text-gray-300'>
-              <p className='text-lg'>{t('index:third_title_subtitle1')}</p>
+              <p className='text-lg'>{t('third_title_subtitle1')}</p>
               <p className='text-base leading-7'>
-                {t('index:third_title_subtitle2')}
+                {t('third_title_subtitle2')}
               </p>
               <p className='text-base leading-7'>
-                {t('index:third_title_subtitle3')}
+                {t('third_title_subtitle3')}
               </p>
             </div>
           </div>
@@ -110,7 +112,7 @@ export default function AboutUsHome() {
           <div className='mt-10'>
             <dl className='grid grid-cols-2 gap-x-4 gap-y-8'>
               {/* @ts-ignore */}
-              {aboutUsStats[currentLocale].map((stat: IAboutUsStats) => (
+              {aboutUsStats[currentLocale].map((stat) => (
                 <div
                   key={stat.label}
                   className='border-t-2 border-gray-100 pt-6'
@@ -130,7 +132,7 @@ export default function AboutUsHome() {
                 locale={currentLocale}
                 className='text-base font-medium text-indigo-600 dark:text-indigo-500'
               >
-                {t('common:find_out_about_text')}
+                {commonT('find_out_about_text')}
                 <span aria-hidden='true'> &rarr;</span>
               </Link>
             </div>

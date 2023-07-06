@@ -1,16 +1,11 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import { IT } from '@/types';
-import { TFunction } from 'i18next';
+import { ITWithCommon } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface IHeroBase extends IT {
-  commonT: TFunction<string, undefined>;
-}
-
-export function HeroBase({ t, commonT }: IHeroBase) {
+export function HeroBase({ t, commonT }: ITWithCommon) {
   return (
     <div className='relative bg-white dark:bg-gray-800'>
       <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>

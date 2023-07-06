@@ -1,14 +1,15 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable import/no-extraneous-dependencies */
+
+import { IT } from '@/types';
 import {
   ArrowPathIcon,
   UserGroupIcon,
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { useTranslation } from 'next-i18next';
-import CardItem from '../app/[lng]/components/Cards/CardItem';
+import CardItem from './CardItem';
 
-export default function Cards() {
-  const { t } = useTranslation();
+export function CardsBase({ t }: IT) {
   return (
     <div className='relative bg-white py-24 dark:bg-gray-800 sm:py-32 lg:py-40'>
       <div className='mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8'>
