@@ -8,7 +8,7 @@ import { IPosts, IT } from '@/types';
 export interface BlogHome extends IT, IPosts {}
 
 export function BlogHomeBase({ t, posts }: BlogHome) {
-  console.log(posts);
+  console.log("PostsBlogBase", posts);
 
   return (
     <div>
