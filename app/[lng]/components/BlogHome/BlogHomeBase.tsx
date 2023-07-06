@@ -8,15 +8,11 @@ import { IPosts, IT } from '@/types';
 export interface BlogHome extends IT, IPosts {}
 
 export function BlogHomeBase({ t, posts }: BlogHome) {
-  console.log("PostsBlogBase", posts);
+  console.log('PostsBlogBase', posts);
 
   return (
     <div>
-      <h1>{t('title')}</h1>
-      <br />
-      <h3>{t('subTitle')}</h3>
-      <br />
-      <p>{t('des')}</p>
+      <h1 className='text-center text-5xl'>Blog Home Section {t('title')}</h1>
     </div>
   );
 }
