@@ -68,15 +68,6 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
   // const { data: session } = useSession();
   const session = await getServerSession(authOptions);
 
-  // const session: Session | null = {
-  //   user: {
-  //     name: 'string',
-  //     email: 'string',
-  //     image: 'string',
-  //   },
-  //   expires: '01', // This is the expiry of the session, not any of the tokens within the session
-  // };
-
   return (
     <Popover className='relative bg-white dark:bg-gray-800'>
       <div
@@ -306,7 +297,7 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
             <ul className='flex justify-end'>
               {locales!.map((locale) => (
                 <Link
-                  href={`/${locale + pathname.split(currentLocale)[1]}`}
+                  href={`/${locale + pathname}`}
                   locale={locale}
                   key={locale}
                   className={
@@ -319,62 +310,6 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
                 </Link>
               ))}
             </ul>
-            {/* {pathname === `${currentLocale}/blog` ? (
-              <ul className='flex justify-end'>
-                {locales!.map((locale) => (
-                  <Link
-                    href={`/${locale + pathname.split(currentLocale)[1]}`} // ${slug}
-                    locale={locale}
-                    key={locale}
-                    className={
-                      locale === currentLocale
-                        ? // eslint-disable-next-line sonarjs/no-duplicate-string
-                          'mx-2 border-b-2 border-b-indigo-400 uppercase'
-                        : 'uppercase'
-                    }
-                  >
-                    {locale}
-                  </Link>
-                ))}
-              </ul>
-            ) : pathname === `${currentLocale}/projects/[name]` ? (
-              <ul className='flex justify-end'>
-                {locales!.map((locale) => (
-                  <Link
-                    href={{
-                      pathname: `/${locale}/projects/[name]`,
-                      query: { name: '' }, // name
-                    }}
-                    locale={locale}
-                    key={locale}
-                    className={
-                      locale === currentLocale
-                        ? 'mx-2 border-b-2 border-b-indigo-400 uppercase'
-                        : 'uppercase'
-                    }
-                  >
-                    {locale}
-                  </Link>
-                ))}
-              </ul>
-            ) : (
-              <ul className='flex justify-end'>
-                {locales!.map((locale) => (
-                  <Link
-                    href={`/${locale+ pathname.split(currentLocale)[1]}`}
-                    locale={locale}
-                    key={locale}
-                    className={
-                      locale === currentLocale
-                        ? 'mx-2 border-b-2 border-b-indigo-400 uppercase'
-                        : 'uppercase'
-                    }
-                  >
-                    {locale}
-                  </Link>
-                ))}
-              </ul>
-            )} */}
             {renderThemeChanger()}
 
             {session?.user == null ? (
