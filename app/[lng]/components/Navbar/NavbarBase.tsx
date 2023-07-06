@@ -92,12 +92,14 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
               />
             </Link>
           </div>
+
           <div className='-my-2 -mr-2 md:hidden'>
             <Popover.Button className='inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
               <span className='sr-only'>Open menu</span>
               <Bars3Icon className='h-6 w-6' aria-hidden='true' />
             </Popover.Button>
           </div>
+
           <div className='hidden md:flex md:flex-1 md:items-center md:justify-between'>
             <Popover.Group as='nav' className='flex space-x-10'>
               <Link
@@ -190,6 +192,7 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
                   </>
                 )}
               </Popover>
+
               <Link
                 href={`/${currentLocale}/blog`}
                 className='text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100'
@@ -197,6 +200,7 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
                 {/* @ts-ignore */}
                 {navigation[currentLocale].blog}
               </Link>
+
               <Popover>
                 {({ open, close }) => (
                   <>
