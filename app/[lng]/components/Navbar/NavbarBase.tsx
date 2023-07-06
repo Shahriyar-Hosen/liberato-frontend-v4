@@ -13,15 +13,15 @@ import { more, navigation, projects } from '@/utils/navbar';
 import { Menu, Popover, Transition } from '@headlessui/react';
 import { ChevronDownIcon, MoonIcon, SunIcon } from '@heroicons/react/20/solid';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Session, getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
-import NavPosts from './NavPosts';
 import { authOptions } from '../../api/auth/[...nextauth]';
+import NavPosts from './NavPosts';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -66,7 +66,7 @@ export async function NavbarBase({ t, lng }: ITLngPath) {
       .then(setPosts);
   }, [currentLocale]);
   // const { data: session } = useSession();
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
 
   // const session: Session | null = {
   //   user: {
