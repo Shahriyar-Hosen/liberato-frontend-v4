@@ -7,6 +7,7 @@ import { ILngPath } from '@/types';
 import { AboutUsHomeBase } from './AboutUsHomeBase';
 
 export function AboutUsHome({ lng }: ILngPath) {
-  const { t } = useTranslation(lng, 'test');
-  return <AboutUsHomeBase t={t} />;
+  const { t } = useTranslation(lng, 'index');
+  const { t: commonT } = useTranslation(lng, 'common');
+  return <AboutUsHomeBase t={t} lng={lng} commonT={commonT} />;
 }

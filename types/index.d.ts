@@ -23,4 +23,10 @@ export interface IT {
   t: TFunction<string, undefined>;
 }
 
+export interface ITWithCommon extends IT {
+  commonT: TFunction<string, undefined>;
+}
+
 export interface ITLngPath extends ILngPath, IT {}
+
+export interface ITLngPathWithCommon extends ILngPath, ITWithCommon {}

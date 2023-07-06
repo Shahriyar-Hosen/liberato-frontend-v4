@@ -2,8 +2,8 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { IAboutUsStats } from 'types/about-us';
-import { aboutUsStats } from 'utils/about-us';
+import { IAboutUsStats } from '@/types/about-us';
+import { aboutUsStats } from '@/utils/about-us';
 
 export default function AboutUsHome() {
   const { t } = useTranslation();
