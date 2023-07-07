@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 function HomePostSingle({ post }: { post: IPost }) {
+  // eslint-disable-next-line no-console
+  console.log({ post });
   const [author, setAuthor] = useState<IAuthor>({
     name: '',
     simple_local_avatar: {

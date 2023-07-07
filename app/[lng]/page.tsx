@@ -13,8 +13,8 @@ import { fallbackLng, languages } from '../i18n/settings';
 import { AboutUsHome, BlogHome, Cards, Hero } from './components';
 
 export async function generateMetadata({ params: { lng } }: IParamsLng) {
-  const { t } = await useTranslation(lng);
-  return { title: t('h1') };
+  const { t } = await useTranslation(lng, 'common');
+  return { title: t('title') };
 }
 
 export interface IHome extends IParamsLng, IPosts {}

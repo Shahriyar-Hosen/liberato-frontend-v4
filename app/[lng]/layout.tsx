@@ -15,6 +15,17 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
+interface IMetadata {
+  title: string;
+  description: string;
+}
+
+export const metadata: IMetadata = {
+  title: 'Udruga Liberato',
+  description:
+    'Previše uski prostori, nepristupačnost i nedostatak informacija ograničavaju osobe s invaliditetom u pristupu osnovnim uslugama i dobrima. Upravo zbog toga što i sam ima slične probleme kao osoba koja koristi invalidska kolica, Stipo Margić se udružuje s kolegama s Fakulteta, Mijom Matijevićem...',
+};
+
 export interface IRootLayout extends IChildren, IParamsLng {}
 
 export default function RootLayout({ children, params: { lng } }: IRootLayout) {
