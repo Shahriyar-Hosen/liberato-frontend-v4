@@ -26,6 +26,7 @@ async function fetchPosts(lng: string): Promise<IPost[]> {
     );
     return response.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching posts', error);
     return [];
   }
