@@ -8,6 +8,8 @@ import { IParamsLng, IPosts } from '@/types';
 import { IPost } from '@/types/blog-posts';
 import { wpApiUrl } from '@/utils/api';
 import axios from 'axios';
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from '../i18n';
 import { fallbackLng, languages } from '../i18n/settings';
 import { AboutUsHome, BlogHome, Cards, Hero } from './components';
@@ -16,6 +18,19 @@ export async function generateMetadata({ params: { lng } }: IParamsLng) {
   const { t } = await useTranslation(lng, 'common');
   return { title: t('title') };
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const res = await fetch(`${wpApiUrl}/posts?per_page=3&page=1&lang=${locale}`);
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts,
+      ...(await serverSideTranslations(locale!, ['index', 'common'])),
+    },
+    revalidate: 10,
+  };
+};
 
 export interface IHome extends IParamsLng, IPosts {}
 

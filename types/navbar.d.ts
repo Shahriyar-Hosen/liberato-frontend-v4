@@ -1,3 +1,5 @@
+import { ForwardRefExoticComponent, RefAttributes, SVGProps } from 'react';
+
 export interface ISocial {
   name: string;
   href: string;
@@ -7,14 +9,24 @@ export interface ISocial {
 export interface IMore {
   name: string;
   href: string;
-  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  icon: ForwardRefExoticComponent<
+    Omit<SVGProps<SVGSVGElement>, 'ref'> & {
+      title?: string | undefined;
+      titleId?: string | undefined;
+    } & RefAttributes<SVGSVGElement>
+  >;
 }
 
 export interface IProjects {
   name: string;
   description: string;
   href: string;
-  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  icon: ForwardRefExoticComponent<
+    Omit<SVGProps<SVGSVGElement>, 'ref'> & {
+      title?: string | undefined;
+      titleId?: string | undefined;
+    } & RefAttributes<SVGSVGElement>
+  >;
 }
 
 export interface ILangProjects {

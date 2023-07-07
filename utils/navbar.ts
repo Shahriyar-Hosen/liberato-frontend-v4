@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+import { ILangMore, ILangNavigation, ILangProjects } from '@/types/navbar';
 import {
   BriefcaseIcon,
   BuildingOfficeIcon,
@@ -8,7 +10,6 @@ import {
   NewspaperIcon,
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
-import { ILangMore, ILangProjects, ILangNavigation } from 'types/navbar';
 
 export const more: ILangMore = {
   en: [
