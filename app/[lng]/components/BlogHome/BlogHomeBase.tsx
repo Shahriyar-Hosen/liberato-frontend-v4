@@ -11,6 +11,7 @@ import HomePostSingle from './HomePostSingle';
 export interface BlogHome extends IT, IPosts {}
 
 export function BlogHomeBase({ t, posts }: BlogHome) {
+  console.log({ posts });
   return (
     <div className='relative bg-gray-50 px-6 pt-16 pb-20 dark:bg-gray-800 lg:px-8 lg:pt-24 lg:pb-28'>
       <div className='absolute inset-0'>
@@ -26,7 +27,7 @@ export function BlogHomeBase({ t, posts }: BlogHome) {
           </p>
         </div>
         <div className='mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3'>
-          {posts.map((post: IPost) => (
+          {posts?.map((post: IPost) => (
             <HomePostSingle key={post.id} post={post} />
           ))}
         </div>
