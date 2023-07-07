@@ -7,6 +7,6 @@ import { BlogHomeBase } from './BlogHomeBase';
 export interface IBlogHome extends ILngPath, IPosts {}
 
 export const BlogHome = async ({ lng, posts }: IBlogHome) => {
-  const { t } = await useTranslation(lng, 'test');
+  const { t } = await useTranslation(lng, 'index');
   return <BlogHomeBase t={t} posts={posts} />;
 };

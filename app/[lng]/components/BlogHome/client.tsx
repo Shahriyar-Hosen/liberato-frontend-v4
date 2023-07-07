@@ -7,6 +7,6 @@ import { IBlogHome } from '.';
 import { BlogHomeBase } from './BlogHomeBase';
 
 export function BlogHome({ lng, posts }: IBlogHome) {
-  const { t } = useTranslation(lng, 'test');
+  const { t } = useTranslation(lng, 'index');
   return <BlogHomeBase t={t} posts={posts} />;
 }
