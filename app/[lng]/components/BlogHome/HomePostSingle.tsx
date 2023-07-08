@@ -17,13 +17,13 @@ function HomePostSingle({ post, featuredMedia, author }: IHomePostSingle) {
   const { minutes, words } = useReadingTime(post.content.rendered);
 
   const link = `/blog/${post.slug}`;
-  console.log({ post: post.featured_media, media: featuredMedia?.id });
+
   if (
     author?.simple_local_avatar.full === '' ||
     featuredMedia?.source_url === ''
   )
     return null;
-  // console.log(featuredMedia);
+
   return (
     <div
       key={post.title.rendered}
