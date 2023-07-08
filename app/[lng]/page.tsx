@@ -6,7 +6,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { IParamsLng, IPosts } from '@/types';
-import { IPost } from '@/types/blog-posts';
+import {
+  IAuthor,
+  IAuthorData,
+  IFeaturedMedia,
+  IPost,
+} from '@/types/blog-posts';
 import { wpApiUrl } from '@/utils/api';
 import axios from 'axios';
 import { useTranslation } from '../i18n';
@@ -18,7 +23,10 @@ export async function generateMetadata({ params: { lng } }: IParamsLng) {
   return { title: t('title') };
 }
 
-export interface IHome extends IParamsLng, IPosts {}
+export interface IHome extends IParamsLng, IPosts {
+  featuredMedia: IFeaturedMedia;
+  author: IAuthor;
+}
 
 async function fetchPosts(lng: string): Promise<IPost[]> {
   try {
@@ -27,26 +35,87 @@ async function fetchPosts(lng: string): Promise<IPost[]> {
     );
     return response.data;
   } catch (error) {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console, sonarjs/no-duplicate-string
     console.error('Error fetching posts', error);
     return [];
   }
 }
+
+const fetchFeaturedMedia = async (media: number) => {
+  try {
+    const response = await axios.get(`${wpApiUrl}/media/${media}`);
+    return response.data;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error fetching posts', error);
+    return [];
+  }
+};
+
+const fetchAuthors = async () => {
+  try {
+    const response = await axios.get(`${wpApiUrl}/users`);
+
+    return response.data.map((user: IAuthorData) => {
+      return {
+        id: user.id,
+        name: user.name,
+        simple_local_avatar: {
+          full: user.simple_local_avatar.full,
+        },
+      };
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error fetching posts', error);
+    return [];
+  }
+};
+
+// const fetchAllAuthor = async (lng: string) => {
+//   try {
+//     const posts = await fetchPosts(lng);
+//     const authors: any[] = [];
+//     let test = {};
+
+//     posts.map(async (post) => {
+//       test = {
+//         ...test,
+//         [post.author]: await fetchAuthor().then((data) => authors.push(data)),
+//       };
+//       // console.log(test);
+//     });
+
+//     return authors;
+//   } catch (error) {
+//     console.error('Error fetching posts', error);
+//     return [];
+//   }
+// };
 
 export default async function Home({ params: { lng } }: IHome) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   // const { t } = await useTranslation(lng);
 
   let posts: IPost[] = [];
+  // const authors: IAuthor[] = [];
 
   posts = await fetchPosts(lng);
+
+  const featuredMedias: IFeaturedMedia[] = await fetchFeaturedMedia(401);
+  const author: IAuthor[] = await fetchAuthors();
 
   return (
     <>
       <Hero lng={lng} />
       <Cards lng={lng} />
       <AboutUsHome lng={lng} />
-      <BlogHome lng={lng} posts={posts} />
+      <BlogHome
+        lng={lng}
+        posts={posts}
+        authors={author}
+        featuredMedias={featuredMedias}
+      />
     </>
   );
 }

@@ -5,13 +5,17 @@
 'use client';
 
 import { IPosts, IT } from '@/types';
-import { IPost } from '@/types/blog-posts';
+import { IAuthor, IFeaturedMedia, IPost } from '@/types/blog-posts';
 import HomePostSingle from './HomePostSingle';
 
-export interface BlogHome extends IT, IPosts {}
+export interface BlogHome extends IT, IPosts {
+  featuredMedias: IFeaturedMedia[];
+  authors: IAuthor[];
+}
 
-export function BlogHomeBase({ t, posts }: BlogHome) {
-  console.log({ posts });
+export function BlogHomeBase({ t, posts, authors, featuredMedias }: BlogHome) {
+  // console.log({ posts });
+
   return (
     <div className='relative bg-gray-50 px-6 pt-16 pb-20 dark:bg-gray-800 lg:px-8 lg:pt-24 lg:pb-28'>
       <div className='absolute inset-0'>
@@ -27,9 +31,18 @@ export function BlogHomeBase({ t, posts }: BlogHome) {
           </p>
         </div>
         <div className='mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3'>
-          {posts?.map((post: IPost) => (
-            <HomePostSingle key={post.id} post={post} />
-          ))}
+          {posts.length >= 1 ? (
+            posts.map((post: IPost) => (
+              <HomePostSingle
+                key={post.id}
+                post={post}
+                featuredMedias={featuredMedias}
+                author={authors?.filter((item) => item.id === post?.author)[0]}
+              />
+            ))
+          ) : (
+            <h1>Kiccu pacci na😥😥😥</h1>
+          )}
         </div>
       </div>
     </div>
