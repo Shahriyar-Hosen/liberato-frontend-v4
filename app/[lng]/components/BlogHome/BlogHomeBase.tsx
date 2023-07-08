@@ -10,10 +10,17 @@ import HomePostSingle from './HomePostSingle';
 
 export interface BlogHome extends IT, IPosts {
   featuredMedias: IFeaturedMedia[];
+  media352: IFeaturedMedia;
   authors: IAuthor[];
 }
 
-export function BlogHomeBase({ t, posts, authors, featuredMedias }: BlogHome) {
+export function BlogHomeBase({
+  t,
+  posts,
+  authors,
+  featuredMedias,
+  media352,
+}: BlogHome) {
   // console.log({ posts });
 
   return (
@@ -36,8 +43,12 @@ export function BlogHomeBase({ t, posts, authors, featuredMedias }: BlogHome) {
               <HomePostSingle
                 key={post.id}
                 post={post}
-                featuredMedias={featuredMedias}
-                author={authors?.filter((item) => item.id === post?.author)[0]}
+                featuredMedia={
+                  featuredMedias?.filter(
+                    (item) => item.id === post.featured_media
+                  )[0] || media352
+                }
+                author={authors?.filter((item) => item.id === post.author)[0]}
               />
             ))
           ) : (

@@ -7,6 +7,7 @@ import { BlogHomeBase } from './BlogHomeBase';
 
 export interface IBlogHome extends ILngPath, IPosts {
   featuredMedias: IFeaturedMedia[];
+  media352: IFeaturedMedia;
   authors: IAuthor[];
 }
 
@@ -15,6 +16,7 @@ export const BlogHome = async ({
   posts,
   authors,
   featuredMedias,
+  media352,
 }: IBlogHome) => {
   const { t } = await useTranslation(lng, 'index');
   return (
@@ -23,6 +25,7 @@ export const BlogHome = async ({
       posts={posts}
       authors={authors}
       featuredMedias={featuredMedias}
+      media352={media352}
     />
   );
 };
